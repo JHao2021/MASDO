@@ -1,0 +1,10 @@
+{
+  "scenario": "data/prepared/scenario.json",
+  "checkpoint": "checkpoints/masdo/model.pt",
+  "output": "outputs/evaluation.json",
+  "device": "cpu",
+  "cpu_threads": 1,
+  "seed": 0,
+  "objective": [0.3333333333333333, 0.3333333333333333, 0.3333333333333333],
+  "reachable_distance_km": 3.0
+}

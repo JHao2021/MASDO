@@ -1,0 +1,72 @@
+{
+  "train_scenarios": [
+    "data/prepared/train.json"
+  ],
+  "output_dir": "checkpoints/masdo",
+  "device": "cpu",
+  "cpu_threads": 1,
+  "seed": 0,
+  "reachable_distance_km": 3.0,
+  "checkpoint_every": 1,
+  "objectives": {
+    "count": 50,
+    "seed": 0,
+    "dirichlet_alpha": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "environment": {
+    "travel_speed_km_per_step": 5.0,
+    "distance_reference_km": 3.0,
+    "grid_rows": 8,
+    "grid_cols": 8
+  },
+  "executor": {
+    "hidden": 32,
+    "skill_dim": 32,
+    "alpha": 1.0,
+    "edge_chunk": 2048
+  },
+  "organizer": {
+    "hidden": 64
+  },
+  "discovery_assignment": {
+    "episodes": 200,
+    "batch_size": 8,
+    "sequence_batch_size": 32,
+    "replay_capacity": 256,
+    "updates_per_episode": 32,
+    "predictor_updates_per_episode": 8,
+    "vector_learning": {
+      "learning_rate": 0.0003,
+      "target_interval": 32,
+      "gradient_steps": 8
+    },
+    "auxiliary_learning": {
+      "learning_rate": 0.0003,
+      "target_interval": 32
+    },
+    "sequence_learning": {
+      "hidden": 64,
+      "learning_rate": 0.0003,
+      "beta_behavior": 0.001,
+      "beta_future": 0.001
+    },
+    "exploration_noise_start": 0.2,
+    "exploration_noise_end": 0.02
+  },
+  "organization": {
+    "episodes": 100,
+    "learning": {
+      "learning_rate": 0.0003,
+      "entropy_weight": 0.01,
+      "target_interval": 32,
+      "warmup_updates": 32,
+      "warmup_learning_rate": 0.003
+    }
+  },
+  "discovery_context_steps": 32,
+  "discovery_future_steps": 8
+}
